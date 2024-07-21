@@ -7,6 +7,7 @@ import datetime
 app = Flask(__name__)
 
 record_log = []
+MAX_LOGLEN = 6
 
 def get_record_count():
     # Simular a contagem de registros com um número aleatório
@@ -39,6 +40,9 @@ def get_record_count():
           ]]
     
     record_log.append({'Time': timestamp, 'count': record_count, 'objeto': objeto})
+
+    if(len(record_log) > MAX_LOGLEN):
+        record_log.pop(0)
     return record_count
    #  return random.randint(0, 400)
 
