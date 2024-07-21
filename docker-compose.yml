@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  grafana:
+    build:
+      context: ./grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=sS-sUfSqT@n6*T-
+  express-app:
+    build: ./monitor
+    ports:
+      - "5000:5000"
+
+volumes:
+  prometheus_data:
